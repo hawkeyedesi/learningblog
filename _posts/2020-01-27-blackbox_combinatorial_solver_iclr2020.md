@@ -3,7 +3,7 @@ toc: true
 layout: post
 description: Differentiation of Blackbox Combinatorial Solvers
 categories: [markdown]
-title: An Example Markdown Post
+title: Differentiation of Blackbox Combinatorial Solvers
 ---
 # [REVIEW] Differentiation of Blackbox Combinatorial Solvers
 

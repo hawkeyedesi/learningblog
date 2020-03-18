@@ -3,7 +3,7 @@ toc: true
 layout: post
 description: On the Relationship between Self Attention and Convolutional Layers
 categories: [markdown]
-title: An Example Markdown Post
+title: On the Relationship between Self Attention and Convolutional Layers
 ---
 
 # [REVIEW] On the Relationship between Self Attention and Convolutional Layers

@@ -3,7 +3,7 @@ toc: true
 layout: post
 description: Weight Agnostic Neural Networks
 categories: [markdown]
-title: An Example Markdown Post
+title: Weight Agnostic Neural Networks
 ---
 
 # [REVIEW] Weight Agnostic Neural Networks

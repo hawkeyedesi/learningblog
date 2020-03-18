@@ -3,7 +3,7 @@ toc: true
 layout: post
 description: A Briefy Survey of the Latest in Unsupervised Domain adapatation
 categories: [markdown]
-title: An Example Markdown Post
+title: A Briefy Survey of the Latest in Unsupervised Domain adapatation
 ---
 
 # A Briefy Survey of the Latest in Unsupervised Domain adapatation
