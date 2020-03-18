@@ -1,85 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://hawkeyedesi.github.io/learningblog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://hawkeyedesi.github.io/learningblog/" rel="alternate" type="text/html" /><updated>2020-03-18T16:54:12-05:00</updated><id>https://hawkeyedesi.github.io/learningblog/feed.xml</id><title type="html">Kashyap</title><subtitle>Blogging about Deep Learning, Medical Imaging and Vision Applications</subtitle><entry><title type="html"></title><link href="https://hawkeyedesi.github.io/learningblog/2020/03/18/2020-01-30-weightagnostic_nn.html" rel="alternate" type="text/html" title="" /><published>2020-03-18T16:54:12-05:00</published><updated>2020-03-18T16:54:12-05:00</updated><id>https://hawkeyedesi.github.io/learningblog/2020/03/18/2020-01-30-weightagnostic_nn</id><content type="html" xml:base="https://hawkeyedesi.github.io/learningblog/2020/03/18/2020-01-30-weightagnostic_nn.html">&lt;h4 id=&quot;resources&quot;&gt;Resources&lt;/h4&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;&lt;a href=&quot;https://arxiv.org/abs/1906.04358&quot;&gt;Arxiv Paper&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;&lt;a href=&quot;https://weightagnostic.github.io/&quot;&gt;Blogpost&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;&lt;a href=&quot;https://weightagnostic.github.io/slides/wann_slides.pdf&quot;&gt;Slides&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;&lt;a href=&quot;https://github.com/weightagnostic/weightagnostic.github.io/issues&quot;&gt;Blog Github&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;&lt;a href=&quot;https://arxiv.org/pdf/math/0406077.pdf&quot;&gt;Tutorial on MDL&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;Note: I am basing everything in these notes from the excellent blog post. I haven’t gone through the paper yet.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;tl;dr: The paper introduces a method of designing neural network architectures that are not dependent on the node weights. Rather the trick here is to let the network evolve its architecture such that the architecture itself has the capacity required to solve the required tasks. The authors draw analogies with precocial animals such as snakes and iguanas wherein they are wired to run away from the prey.&lt;/p&gt;
-
-&lt;h4 id=&quot;overall-impression&quot;&gt;Overall impression&lt;/h4&gt;
-&lt;p&gt;I think its a very cool concept in its nascent stages they have shown how without the burden of weight training, they employed a topology-based algorithm (&lt;a href=&quot;http://www.cs.ucf.edu/~kstanley/neat.html&quot;&gt;NEAT&lt;/a&gt;) to find and grow the topology.&lt;/p&gt;
-
-&lt;h4 id=&quot;key-ideas&quot;&gt;Key ideas&lt;/h4&gt;
-&lt;p&gt;Quoting from the blog:&lt;/p&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;While the aforementioned works focus on the information capacity required to represent the weights of predefined network architecture, in this work we focus on finding minimal architectures that can represent solutions to various tasks.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;By making the network be independent of the weights or the tuning and solely depending on the architecture the work can use other algorithms besides gradient descent and backprop such as NEAT to solve the architecture&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;By weight sharing across the entire network with the weighting treated as a random sample from a uniform random distribution.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Introducing more than the common (e.g. linear, sigmoid, ReLU) and more exotic (Gaussian, sinusoid, step), the network is learning to include more of these connections.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;By replacing the grunt work of the weights as filters, this work is now forcing the network connections to provide the right weighting or inductive biases for that particular problem.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Further, instead of fixing the structure of the network and then biasing the weights of the network to solve a specific problem, you are instead relying on the network architecture structure.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;By introducing nodes with a lot more sets of options such as inv, sin, cost gaussian, bias, etc (See paper and the code for details) you are replicating the functions a weight-based filter would do. That is a pretty cool concept.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Unlike NAS or other operations wherein you have to run the network every single time to compute a metric (for eg. accuracy) to see the performance, this proposed method instead just goes with random permutations of the network (I am assuming that’s what the random trial paper does or some flavor of it).&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;technical-details&quot;&gt;Technical details&lt;/h4&gt;
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Not merely any weight agnostic neural network but one that can be described using a minimum descriptor length.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Significance of minimum description length models when choosing the weight agnostic NN: Using MDL inference, you are ensuring that the model that is being selected is the simplest one while still ensuring that it works just as well as the more complex network architectures.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;notes&quot;&gt;Notes&lt;/h4&gt;
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Inductive Biases in Machine learning are a set of assumptions that the model learns to make during training to predict the unseen target data accurately. This &lt;a href=&quot;http://www.lauradhamilton.com/inductive-biases-various-machine-learning-algorithms&quot;&gt;website&lt;/a&gt; on inductive bias has a nice list of biases that are present for every task.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;What is Minimum Description Length: MDL is an inference method that provides a generic solution to the model inference problem. The definition states that when you have different models that perform just as well, using MDL for model selection will ensure that you pick the simplest model that still performs as well as the more complex models.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Questions and notes on how to improve/revise the current work
-    &lt;ul&gt;
-      &lt;li&gt;How would it work for more complicated semi-supervised and supervised problems?&lt;/li&gt;
-      &lt;li&gt;Are there more creative and interesting node functions to pick from that will help improve this?&lt;/li&gt;
-      &lt;li&gt;What happens if you start allowing more interesting connections such as skip connections in the feed-forward directions. Can you even do that and can it be optimized using the NEAT algorithm? 
- 
-        &lt;h4 id=&quot;things-i-dont-understand&quot;&gt;Things I don’t understand &lt;/h4&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;What are the connection cost technique and I am not sure how it relates to the NEAT algorithm for model growing?&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Further, how does dominance relations work to rank the networks based on mean overall performance, the weight values (how does it perform for the fixed selected weight. The paper chose a range between [-2,2]), max performance of the single best value and the number of connections in the network.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Does the domain relation ranking also consider the MDL inference internally and if so how? I still need to read those topics.&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author></entry><entry><title type="html"></title><link href="https://hawkeyedesi.github.io/learningblog/2020/03/18/2020-01-27-self_attention_iclr2020.html" rel="alternate" type="text/html" title="" /><published>2020-03-18T16:54:12-05:00</published><updated>2020-03-18T16:54:12-05:00</updated><id>https://hawkeyedesi.github.io/learningblog/2020/03/18/2020-01-27-self_attention_iclr2020</id><content type="html" xml:base="https://hawkeyedesi.github.io/learningblog/2020/03/18/2020-01-27-self_attention_iclr2020.html">&lt;h4 id=&quot;background&quot;&gt;Background:&lt;/h4&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://hawkeyedesi.github.io/learningblog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://hawkeyedesi.github.io/learningblog/" rel="alternate" type="text/html" /><updated>2020-03-18T16:58:26-05:00</updated><id>https://hawkeyedesi.github.io/learningblog/feed.xml</id><title type="html">Kashyap</title><subtitle>Blogging about Deep Learning, Medical Imaging and Vision Applications</subtitle><entry><title type="html"></title><link href="https://hawkeyedesi.github.io/learningblog/2020/03/18/2020-01-27-self_attention_iclr2020.html" rel="alternate" type="text/html" title="" /><published>2020-03-18T16:58:26-05:00</published><updated>2020-03-18T16:58:26-05:00</updated><id>https://hawkeyedesi.github.io/learningblog/2020/03/18/2020-01-27-self_attention_iclr2020</id><content type="html" xml:base="https://hawkeyedesi.github.io/learningblog/2020/03/18/2020-01-27-self_attention_iclr2020.html">&lt;h4 id=&quot;background&quot;&gt;Background:&lt;/h4&gt;
 &lt;p&gt;This paper banks on the concept of transformers and self attention both of which are foriegn to me. So i start out doing a brief review on what the two concepts are and then move onto what this paper does and how it uses them.&lt;/p&gt;
 
 &lt;p&gt;Review of the &lt;a href=&quot;http://jalammar.github.io/illustrated-transformer/&quot;&gt;Illustrated Transformer Blog Post&lt;/a&gt;. To start off with you need to first get an understanding of the attention mechanism in the Seq2Seq models starting &lt;a href=&quot;https://jalammar.github.io/visualizing-neural-machine-translation-mechanics-of-seq2seq-models-with-attention/&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
@@ -167,7 +86,7 @@ http://nlp.seas.harvard.edu/2018/04/03/attention.html - A full step by step impl
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;I skimmed the proof because I really don’t have any experience understanding what it is doing.&lt;/p&gt;</content><author><name></name></author></entry><entry><title type="html"></title><link href="https://hawkeyedesi.github.io/learningblog/2020/03/18/2020-01-27-blackbox_combinatorial_solver_iclr2020.html" rel="alternate" type="text/html" title="" /><published>2020-03-18T16:54:12-05:00</published><updated>2020-03-18T16:54:12-05:00</updated><id>https://hawkeyedesi.github.io/learningblog/2020/03/18/2020-01-27-blackbox_combinatorial_solver_iclr2020</id><content type="html" xml:base="https://hawkeyedesi.github.io/learningblog/2020/03/18/2020-01-27-blackbox_combinatorial_solver_iclr2020.html">&lt;h4 id=&quot;arxiv-paper-differentiation-of-blackbox-combinatorial-solvers&quot;&gt;Arxiv Paper: &lt;a href=&quot;https://arxiv.org/abs/1912.02175&quot;&gt;Differentiation of Blackbox Combinatorial Solvers&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;I skimmed the proof because I really don’t have any experience understanding what it is doing.&lt;/p&gt;</content><author><name></name></author></entry><entry><title type="html"></title><link href="https://hawkeyedesi.github.io/learningblog/2020/03/18/2020-01-27-blackbox_combinatorial_solver_iclr2020.html" rel="alternate" type="text/html" title="" /><published>2020-03-18T16:58:26-05:00</published><updated>2020-03-18T16:58:26-05:00</updated><id>https://hawkeyedesi.github.io/learningblog/2020/03/18/2020-01-27-blackbox_combinatorial_solver_iclr2020</id><content type="html" xml:base="https://hawkeyedesi.github.io/learningblog/2020/03/18/2020-01-27-blackbox_combinatorial_solver_iclr2020.html">&lt;h4 id=&quot;arxiv-paper-differentiation-of-blackbox-combinatorial-solvers&quot;&gt;Arxiv Paper: &lt;a href=&quot;https://arxiv.org/abs/1912.02175&quot;&gt;Differentiation of Blackbox Combinatorial Solvers&lt;/a&gt;&lt;/h4&gt;
 
 &lt;p&gt;tl;dr: This paper presents for the first time a method for combining deep learning as a rich feature generator along with a combinatorial optimizer. 
 The innovative thing they show here is that by approximating the piecewise continuous outputs from a combinatorial optimizer to make it continuous we can backpropagate the gradients to also learn the feature representations of the deep learner. 
@@ -969,7 +888,88 @@ A nice review of gans again not specifically on domain adaptation.&lt;/p&gt;
 
 &lt;p&gt;Idea is to do a cross-domain segmentation using CT and MRIs. The network is posed as a domain adaptation problem with an adversarial part. The idea here is to reduce the variances in the feature space between the source and the target dataset since the final task is the same, i.e. whole heart segmentation. This is achieved by having a separate module trained for the target feature generator part (they call it DAM (domain adaptation module)) along with a domain critic module (DCM) which uses the Wasserstein distance to quantify the feature space differences between the MRI and the CT.&lt;/p&gt;
 
-&lt;p&gt;only feature space alignment with a few layers. only works on the same modality of the body parts does not or will not probably work if the source and the target datasets are acquired differently. &lt;/p&gt;</content><author><name></name></author><summary type="html">Detailed notes on some of the papers survey can be found here</summary></entry><entry><title type="html">An Example Markdown Post</title><link href="https://hawkeyedesi.github.io/learningblog/markdown/2020/01/14/test-markdown-post.html" rel="alternate" type="text/html" title="An Example Markdown Post" /><published>2020-01-14T00:00:00-06:00</published><updated>2020-01-14T00:00:00-06:00</updated><id>https://hawkeyedesi.github.io/learningblog/markdown/2020/01/14/test-markdown-post</id><content type="html" xml:base="https://hawkeyedesi.github.io/learningblog/markdown/2020/01/14/test-markdown-post.html">&lt;h1 id=&quot;example-markdown-post&quot;&gt;Example Markdown Post&lt;/h1&gt;
+&lt;p&gt;only feature space alignment with a few layers. only works on the same modality of the body parts does not or will not probably work if the source and the target datasets are acquired differently. &lt;/p&gt;</content><author><name></name></author><summary type="html">Detailed notes on some of the papers survey can be found here</summary></entry><entry><title type="html">Weight Agnostic Neural Networks</title><link href="https://hawkeyedesi.github.io/learningblog/markdown/2020/01/30/weightagnostic_nn.html" rel="alternate" type="text/html" title="Weight Agnostic Neural Networks" /><published>2020-01-30T00:00:00-06:00</published><updated>2020-01-30T00:00:00-06:00</updated><id>https://hawkeyedesi.github.io/learningblog/markdown/2020/01/30/weightagnostic_nn</id><content type="html" xml:base="https://hawkeyedesi.github.io/learningblog/markdown/2020/01/30/weightagnostic_nn.html">&lt;h4 id=&quot;resources&quot;&gt;Resources&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;&lt;a href=&quot;https://arxiv.org/abs/1906.04358&quot;&gt;Arxiv Paper&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;&lt;a href=&quot;https://weightagnostic.github.io/&quot;&gt;Blogpost&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;&lt;a href=&quot;https://weightagnostic.github.io/slides/wann_slides.pdf&quot;&gt;Slides&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;&lt;a href=&quot;https://github.com/weightagnostic/weightagnostic.github.io/issues&quot;&gt;Blog Github&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;&lt;a href=&quot;https://arxiv.org/pdf/math/0406077.pdf&quot;&gt;Tutorial on MDL&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Note: I am basing everything in these notes from the excellent blog post. I haven’t gone through the paper yet.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;tl;dr: The paper introduces a method of designing neural network architectures that are not dependent on the node weights. Rather the trick here is to let the network evolve its architecture such that the architecture itself has the capacity required to solve the required tasks. The authors draw analogies with precocial animals such as snakes and iguanas wherein they are wired to run away from the prey.&lt;/p&gt;
+
+&lt;h4 id=&quot;overall-impression&quot;&gt;Overall impression&lt;/h4&gt;
+&lt;p&gt;I think its a very cool concept in its nascent stages they have shown how without the burden of weight training, they employed a topology-based algorithm (&lt;a href=&quot;http://www.cs.ucf.edu/~kstanley/neat.html&quot;&gt;NEAT&lt;/a&gt;) to find and grow the topology.&lt;/p&gt;
+
+&lt;h4 id=&quot;key-ideas&quot;&gt;Key ideas&lt;/h4&gt;
+&lt;p&gt;Quoting from the blog:&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;While the aforementioned works focus on the information capacity required to represent the weights of predefined network architecture, in this work we focus on finding minimal architectures that can represent solutions to various tasks.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;By making the network be independent of the weights or the tuning and solely depending on the architecture the work can use other algorithms besides gradient descent and backprop such as NEAT to solve the architecture&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;By weight sharing across the entire network with the weighting treated as a random sample from a uniform random distribution.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Introducing more than the common (e.g. linear, sigmoid, ReLU) and more exotic (Gaussian, sinusoid, step), the network is learning to include more of these connections.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;By replacing the grunt work of the weights as filters, this work is now forcing the network connections to provide the right weighting or inductive biases for that particular problem.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Further, instead of fixing the structure of the network and then biasing the weights of the network to solve a specific problem, you are instead relying on the network architecture structure.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;By introducing nodes with a lot more sets of options such as inv, sin, cost gaussian, bias, etc (See paper and the code for details) you are replicating the functions a weight-based filter would do. That is a pretty cool concept.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Unlike NAS or other operations wherein you have to run the network every single time to compute a metric (for eg. accuracy) to see the performance, this proposed method instead just goes with random permutations of the network (I am assuming that’s what the random trial paper does or some flavor of it).&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;technical-details&quot;&gt;Technical details&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Not merely any weight agnostic neural network but one that can be described using a minimum descriptor length.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Significance of minimum description length models when choosing the weight agnostic NN: Using MDL inference, you are ensuring that the model that is being selected is the simplest one while still ensuring that it works just as well as the more complex network architectures.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;notes&quot;&gt;Notes&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Inductive Biases in Machine learning are a set of assumptions that the model learns to make during training to predict the unseen target data accurately. This &lt;a href=&quot;http://www.lauradhamilton.com/inductive-biases-various-machine-learning-algorithms&quot;&gt;website&lt;/a&gt; on inductive bias has a nice list of biases that are present for every task.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;What is Minimum Description Length: MDL is an inference method that provides a generic solution to the model inference problem. The definition states that when you have different models that perform just as well, using MDL for model selection will ensure that you pick the simplest model that still performs as well as the more complex models.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Questions and notes on how to improve/revise the current work
+    &lt;ul&gt;
+      &lt;li&gt;How would it work for more complicated semi-supervised and supervised problems?&lt;/li&gt;
+      &lt;li&gt;Are there more creative and interesting node functions to pick from that will help improve this?&lt;/li&gt;
+      &lt;li&gt;What happens if you start allowing more interesting connections such as skip connections in the feed-forward directions. Can you even do that and can it be optimized using the NEAT algorithm? 
+ 
+        &lt;h4 id=&quot;things-i-dont-understand&quot;&gt;Things I don’t understand &lt;/h4&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;What are the connection cost technique and I am not sure how it relates to the NEAT algorithm for model growing?&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Further, how does dominance relations work to rank the networks based on mean overall performance, the weight values (how does it perform for the fixed selected weight. The paper chose a range between [-2,2]), max performance of the single best value and the number of connections in the network.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Does the domain relation ranking also consider the MDL inference internally and if so how? I still need to read those topics.&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">Resources Arxiv Paper Blogpost Slides Blog Github Tutorial on MDL</summary></entry><entry><title type="html">An Example Markdown Post</title><link href="https://hawkeyedesi.github.io/learningblog/markdown/2020/01/14/test-markdown-post.html" rel="alternate" type="text/html" title="An Example Markdown Post" /><published>2020-01-14T00:00:00-06:00</published><updated>2020-01-14T00:00:00-06:00</updated><id>https://hawkeyedesi.github.io/learningblog/markdown/2020/01/14/test-markdown-post</id><content type="html" xml:base="https://hawkeyedesi.github.io/learningblog/markdown/2020/01/14/test-markdown-post.html">&lt;h1 id=&quot;example-markdown-post&quot;&gt;Example Markdown Post&lt;/h1&gt;
 
 &lt;h2 id=&quot;basic-setup&quot;&gt;Basic setup&lt;/h2&gt;
 
