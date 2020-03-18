@@ -1,9 +1,9 @@
 ---
 toc: true
 layout: post
-description: Differentiation of Blackbox Combinatorial Solvers
+description: A review of the 2020 ICLR paper: Differentiation of Blackbox Combinatorial Solvers
 categories: [markdown]
-title: REVIEW: Differentiation of Blackbox Combinatorial Solvers
+title: Differentiation of Blackbox Combinatorial Solvers
 ---
 #### Arxiv Paper: [Differentiation of Blackbox Combinatorial Solvers](https://arxiv.org/abs/1912.02175)
 

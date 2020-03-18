@@ -1,9 +1,9 @@
 ---
 toc: true
 layout: post
-description: Weight Agnostic Neural Networks
+description: A review of the Weight Agnostic Neural Networks paper. 
 categories: [markdown]
-title: REVIEW: Weight Agnostic Neural Networks
+title: Weight Agnostic Neural Networks
 ---
 
 #### Resources
