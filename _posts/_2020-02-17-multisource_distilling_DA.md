@@ -1,3 +1,11 @@
+---
+toc: true
+layout: post
+description: Detailed notes on some of the domain Adapatation papers
+categories: [markdown]
+title: Domain Adaptaion/Generalization survey notes
+---
+
 # [Multi-source Distilling Domain Adaptation](../_pdfs/Multi-source_Distilling_Domain_Adaptation.pdf)
 
 (https://arxiv.org/abs/1911.11554)
@@ -119,21 +127,3 @@ Describe the overall impression of the paper.
 - They say it is used to tackle a single known source and multiple unknown target domains. Can this be adapted to multiple sources with a known target? How would it need to be adapted? 
 - Lots of information theory math behind why they are doing their setup but overall it seems like a simple enough encoder-decoder architecture setup in an information-theoretic framework. 
 - I liked the fact that they explicitly try to say that there are two separate aspects to a given domain adaptation problem, i.e. the private and the shared domain information and a given network is forced to learn both of them. 
-
-
----
-tl;dr: Summary of the main idea.
-
-#### Overall impression
-Describe the overall impression of the paper. 
-
-#### Key ideas
-- Summaries of the key ideas
-
-#### Technical details
-- Summary of technical details
-
-#### Notes
-- Questions and notes on how to improve/revise the current work  
-- How this work would apply to improve your current research or new research directions
-

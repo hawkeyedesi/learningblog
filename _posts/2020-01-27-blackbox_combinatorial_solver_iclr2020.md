@@ -3,10 +3,8 @@ toc: true
 layout: post
 description: Differentiation of Blackbox Combinatorial Solvers
 categories: [markdown]
-title: Differentiation of Blackbox Combinatorial Solvers
+title: [REVIEW] Differentiation of Blackbox Combinatorial Solvers
 ---
-# [REVIEW] Differentiation of Blackbox Combinatorial Solvers
-
 #### Arxiv Paper: [Differentiation of Blackbox Combinatorial Solvers](https://arxiv.org/abs/1912.02175)
 
 tl;dr: This paper presents for the first time a method for combining deep learning as a rich feature generator along with a combinatorial optimizer. 

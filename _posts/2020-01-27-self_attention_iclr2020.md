@@ -3,11 +3,8 @@ toc: true
 layout: post
 description: On the Relationship between Self Attention and Convolutional Layers
 categories: [markdown]
-title: On the Relationship between Self Attention and Convolutional Layers
+title: [REVIEW] On the Relationship between Self Attention and Convolutional Layers
 ---
-
-# [REVIEW] On the Relationship between Self Attention and Convolutional Layers
-
 #### Background: 
 This paper banks on the concept of transformers and self attention both of which are foriegn to me. So i start out doing a brief review on what the two concepts are and then move onto what this paper does and how it uses them. 
 
