@@ -6,7 +6,7 @@ categories: [markdown]
 title: A Brief Survey of the Latest in Unsupervised Domain adaptation
 ---
 
-## Detailed notes on some of the papers survey can be found [here](_2020-02-17-multisource_distilling_DA.md)
+Detailed notes on some of the papers survey can be found [here](_2020-02-17-multisource_distilling_DA.md)
 
 
 Most commonly cited papers in the literature: 
