@@ -1,7 +1,7 @@
 ---
 toc: true
 layout: post
-description: A review of the 2020 ICLR paper - On the Relationship between Self Attention and Convolutional Layers
+description: A review of the 2020 ICLR paper On the Relationship between Self Attention and Convolutional Layers
 categories: [markdown]
 title: On the Relationship between Self Attention and Convolutional Layers
 ---
