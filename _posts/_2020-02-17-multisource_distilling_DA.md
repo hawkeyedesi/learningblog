@@ -1,11 +1,3 @@
----
-toc: true
-layout: post
-description: Detailed notes on some of the domain Adapatation papers
-categories: [markdown]
-title: Domain Adaptaion/Generalization survey notes
----
-
 # [Multi-source Distilling Domain Adaptation](../_pdfs/Multi-source_Distilling_Domain_Adaptation.pdf)
 
 (https://arxiv.org/abs/1911.11554)
