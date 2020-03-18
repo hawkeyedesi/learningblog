@@ -1,7 +1,9 @@
 ---
-layout: default
-comments: true
-# other options
+toc: true
+layout: post
+description: Differentiation of Blackbox Combinatorial Solvers
+categories: [markdown]
+title: An Example Markdown Post
 ---
 # [REVIEW] Differentiation of Blackbox Combinatorial Solvers
 

@@ -1,5 +1,17 @@
-# Unsupervised Domain adapatation
-Most commonly compared against: 
+---
+toc: true
+layout: post
+description: A Briefy Survey of the Latest in Unsupervised Domain adapatation
+categories: [markdown]
+title: An Example Markdown Post
+---
+
+# A Briefy Survey of the Latest in Unsupervised Domain adapatation
+
+## Detialed notes on some of the papers survey can be found [here](_2020-02-17-multisource_distilling_DA.md)
+
+
+Most commonly cited papers in the literature: 
 -
 
 [[1702.05464] Adversarial Discriminative Domain Adaptation](https://arxiv.org/abs/1702.05464)
@@ -26,9 +38,6 @@ Other Papers:
 [Unsupervised Multi-Target Domain Adaptation: An Information Theoretic Approach](_2020-02-17-multisource_distilling_DA.md)
 
 
-Reviewer Suggested Papers: 
--
-
 [[1801.07593] Mitigating Unwanted Biases with Adversarial Learning](https://arxiv.org/abs/1801.07593)
 This paper attempts to define the different types of biases that can occur and then tries to reduce it using adverserial techinques. The work is shown on both text and tabular data. Results show good outputs without dependence on the bias variable. 
 
@@ -49,11 +58,3 @@ A nice review of gans again not really specifically on domain adapatation.
 Idea is to do a cross domain segmentation using ct and mris. The network is posed as a domain adapatation problem with a adverserarial part. Idea here is to reduce the variances in the feature space between the source and the target dataset since the final task is the same, i.e. whole heart segemntation. This is acheived by having a seperate module trained for the target feature generator part (they call it DAM (domain adapatation module)) alond with a domain critic module (DCM) which uses the wasserstein distance to quanitfy the feature space differences between the MRI and the CT. 
 
 only feature space alignment with a few layers. only works on the same modality of the body parts does not or will not probabaly work if the source and the target datasets are acquired differently. 
-
-
-
-[Kamnitsas et al., 2017].
-
-
-# Datasets: 
-Multimodality Whole Heart Segmentation Benchmark needs to be done as well. 

@@ -1,7 +1,9 @@
 ---
-layout: default
-comments: true
-# other options
+toc: true
+layout: post
+description: Weight Agnostic Neural Networks
+categories: [markdown]
+title: An Example Markdown Post
 ---
 
 # [REVIEW] Weight Agnostic Neural Networks

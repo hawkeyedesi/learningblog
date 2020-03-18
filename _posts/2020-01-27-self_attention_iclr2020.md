@@ -1,8 +1,11 @@
 ---
-layout: default
-comments: true
-# other options
+toc: true
+layout: post
+description: On the Relationship between Self Attention and Convolutional Layers
+categories: [markdown]
+title: An Example Markdown Post
 ---
+
 # [REVIEW] On the Relationship between Self Attention and Convolutional Layers
 
 #### Background: 
